@@ -1,6 +1,30 @@
-<div class="container ">
+<?php
+/* Smarty version 4.1.0, created on 2022-04-28 11:34:16
+  from 'E:\projects\TestApplication\kii_testApp\view\templates\login.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.1.0',
+  'unifunc' => 'content_626a51885c6b61_38077870',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '49c125349b605ae08001f3f5aba43e7436537dca' => 
+    array (
+      0 => 'E:\\projects\\TestApplication\\kii_testApp\\view\\templates\\login.tpl',
+      1 => 1650631901,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_626a51885c6b61_38077870 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="container ">
     <div class="row justify-content-center">
-        <h4 id="LoginFormTitle" class="text-center">{$title|escape}</h4>
+        <h4 id="LoginFormTitle" class="text-center"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['title']->value, ENT_QUOTES, 'UTF-8', true);?>
+</h4>
         <form class="form-control col-6"">
             <label for="loginForm">Логин</label>
             <input class="input-group" id="loginForm" type="text">
@@ -41,3 +65,5 @@
     </div>
 </div>
 
+<?php }
+}

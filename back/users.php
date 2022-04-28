@@ -44,8 +44,8 @@ class users
         if($this->validateNewLogin()&&$this->validatePassword()) {
             $this->password = md5($this->password);
             $connector = new dbSocket();
-            $connector->dbSocket->prepare('INSERT INTO `users` (`user_name`, `login`, `email`, `password`) VALUES (`:userName`, `:login`, `:email`, `:password`)');
-            $connector->dbSocket->execute(['userName' => $this->name,
+            $stmt = $connector->dbSocket->prepare('INSERT INTO `users` (`user_name`, `login`, `email`, `password`) VALUES (`:userName`, `:login`, `:email`, `:password`)');
+            $stmt->execute(['userName' => $this->name,
                 'login' => $this->login,
                 'email' => $this->email,
                 'password' => $this->password
@@ -116,9 +116,9 @@ class users
 
     public function selectUserByLogin(){
         $connector = new dbSocket();
-        $connector->dbSocket->prepare('SELECT * FROM `users` WHERE `login` = ?');
-        $connector->dbSocket->execute($this->login);
-        $row = $connector->dbSocket->fetch(PDO::FETCH_ASSOC);
+        $stmt = $connector->dbSocket->prepare('SELECT * FROM `users` WHERE `login` = ?');
+        $stmt->execute($this->login);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if($row){
             $this->id = $row['id'];
             $this->login = $row['login'];
